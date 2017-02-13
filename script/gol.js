@@ -1,11 +1,11 @@
-module.exports = function(){
+module.exports = function () {
 
-	function evolve(gridState){
-		var newState = [];
-		return newState;
-	}
+    function evolve(gridState) {
+        var newState = [];
+        return newState;
+    }
 
-	return {
-		evolve: evolve
-	};
+    return {
+        evolve: evolve
+    };
 };
