@@ -52,4 +52,22 @@ describe('Game', function () {
         expect(evolve(fourNeighbours)[1][1]).toEqual(0);
         expect(evolve(fiveNeighbours)[1][1]).toEqual(0);
     });
+
+    it('can evolve a live cell with two or three neighbours', () => {
+        var twoNeighbours = [
+            [1, 1, 0],
+            [0, 1, 0],
+            [0, 0, 0]
+        ];
+
+        var threeNeighbours = [
+            [0, 0, 0],
+            [0, 1, 0],
+            [1, 1, 1]
+        ];
+
+        // middle cells should be live
+        expect(evolve(twoNeighbours)[1][1]).toEqual(1);
+        expect(evolve(threeNeighbours)[1][1]).toEqual(1);
+    });
 });
