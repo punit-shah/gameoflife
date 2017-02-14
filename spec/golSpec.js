@@ -78,7 +78,30 @@ describe('Game', function () {
             [0, 0, 0]
         ];
 
-        // middle cells should be live
+        // middle cell should be live
         expect(evolve(threeNeighbours)[1][1]).toEqual(1);
     });
+
+    it('can evolve a seeded grid correctly', () => {
+        var initialGrid = [
+            [0, 0, 0],
+            [1, 1, 1],
+            [0, 0, 0]
+        ];
+
+        var firstStep = [
+            [0, 1, 0],
+            [0, 1, 0],
+            [0, 1, 0]
+        ];
+
+        var secondStep = [
+            [0, 0, 0],
+            [1, 1, 1],
+            [0, 0, 0]
+        ];
+
+        expect(evolve(initialGrid)).toEqual(firstStep);
+        expect(evolve(evolve(initialGrid))).toEqual(secondStep);
+    })
 });
