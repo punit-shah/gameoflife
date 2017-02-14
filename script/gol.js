@@ -24,8 +24,12 @@ module.exports = function () {
                     } else {
                         newState[x][y] = EMPTY;
                     }
-                } else { // cell is empty
-                    newState[x][y] = EMPTY;
+                } else { // current cell is empty
+                    if (liveNeighbours === 3) {
+                        newState[x][y] = LIVE;
+                    } else {
+                        newState[x][y] = EMPTY;
+                    }
                 }
             }
         }
