@@ -24,6 +24,35 @@ module.exports = function () {
         return newState;
     }
 
+    // returns the number of neighbours of the cell grid[x][y]
+    function getLiveNeighbours(grid, x, y) {
+        let liveNeighbours = 0;
+
+        // loop through cell's neighbours
+        for (let i = -1; i <= 1; i++) {
+            const nx = x + i;
+
+            for (let j = -1; j <= 1; j++) {
+                const ny = y + j;
+
+                // check that neighbour exists in grid
+                const neighbourExists = typeof grid[nx] !== 'undefined' && typeof grid[nx][ny] !== 'undefined';
+
+                // check that the cell and the neighbour are not the same cell
+                const isNotSameCell = !(nx === x && ny === y);
+
+                // check that the neighbour is alive
+                const isAlive = grid[nx][ny] === ALIVE;
+
+                if (neighbourExists && isNotSameCell && isAlive) {
+                    liveNeighbours++;
+                }
+            }
+        }
+
+        return liveNeighbours;
+    }
+
     return {
         evolve: evolve
     };
