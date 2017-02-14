@@ -70,4 +70,15 @@ describe('Game', function () {
         expect(evolve(twoNeighbours)[1][1]).toEqual(1);
         expect(evolve(threeNeighbours)[1][1]).toEqual(1);
     });
+
+    it('can evolve an empty cell with exactly three neighbours', () => {
+        var threeNeighbours = [
+            [1, 1, 0],
+            [0, 0, 1],
+            [0, 0, 0]
+        ];
+
+        // middle cells should be live
+        expect(evolve(threeNeighbours)[1][1]).toEqual(1);
+    });
 });
