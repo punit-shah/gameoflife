@@ -1,6 +1,6 @@
 module.exports = function () {
-    const ALIVE = 1;
-    const DEAD = 0;
+    const LIVE = 1;
+    const EMPTY = 0;
 
     function evolve(gridState) {
         const rows = gridState.length;
@@ -15,9 +15,18 @@ module.exports = function () {
         // find state for each cell in grid
         for (let x = 0; x < rows; x++) {
             for (let y = 0; y < cols; y++) {
-                newState[x][y] = DEAD;
+                const liveNeighbours = getLiveNeighbours(gridState, x, y);
+                const currentCell = gridState[x][y];
 
-                // todo: determine state depending on number of alive neighbours
+                if (currentCell === LIVE) {
+                    if (liveNeighbours === 2 || liveNeighbours === 3) {
+                        newState[x][y] = LIVE;
+                    } else {
+                        newState[x][y] = EMPTY;
+                    }
+                } else { // cell is empty
+                    newState[x][y] = EMPTY;
+                }
             }
         }
 
@@ -42,10 +51,10 @@ module.exports = function () {
                     // check that the cell and the neighbour are not the same cell
                     const isNotSameCell = !(nx === x && ny === y);
 
-                    // check that the neighbour is alive
-                    const isAlive = grid[nx][ny] === ALIVE;
+                    // check that the neighbour is live
+                    const isLive = grid[nx][ny] === LIVE;
 
-                    if (isNotSameCell && isAlive) {
+                    if (isNotSameCell && isLive) {
                         liveNeighbours++;
                     }
                 }
