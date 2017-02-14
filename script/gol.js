@@ -38,14 +38,16 @@ module.exports = function () {
                 // check that neighbour exists in grid
                 const neighbourExists = typeof grid[nx] !== 'undefined' && typeof grid[nx][ny] !== 'undefined';
 
-                // check that the cell and the neighbour are not the same cell
-                const isNotSameCell = !(nx === x && ny === y);
+                if (neighbourExists) {
+                    // check that the cell and the neighbour are not the same cell
+                    const isNotSameCell = !(nx === x && ny === y);
 
-                // check that the neighbour is alive
-                const isAlive = grid[nx][ny] === ALIVE;
+                    // check that the neighbour is alive
+                    const isAlive = grid[nx][ny] === ALIVE;
 
-                if (neighbourExists && isNotSameCell && isAlive) {
-                    liveNeighbours++;
+                    if (isNotSameCell && isAlive) {
+                        liveNeighbours++;
+                    }
                 }
             }
         }
