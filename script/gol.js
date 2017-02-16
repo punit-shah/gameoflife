@@ -18,19 +18,7 @@ module.exports = function () {
                 const liveNeighbours = getLiveNeighbours(gridState, x, y);
                 const currentCell = gridState[x][y];
 
-                if (currentCell === LIVE) {
-                    if (liveNeighbours === 2 || liveNeighbours === 3) {
-                        newState[x][y] = LIVE;
-                    } else {
-                        newState[x][y] = EMPTY;
-                    }
-                } else { // current cell is empty
-                    if (liveNeighbours === 3) {
-                        newState[x][y] = LIVE;
-                    } else {
-                        newState[x][y] = EMPTY;
-                    }
-                }
+                newState[x][y] = getCellState(liveNeighbours, currentCell);
             }
         }
 
@@ -66,6 +54,22 @@ module.exports = function () {
         }
 
         return liveNeighbours;
+    }
+
+    function getCellState(liveNeighbours, currentCell) {
+        if (currentCell === LIVE) {
+            if (liveNeighbours === 2 || liveNeighbours === 3) {
+                return LIVE;
+            } else {
+                return EMPTY;
+            }
+        } else { // current cell is empty
+            if (liveNeighbours === 3) {
+                return LIVE;
+            } else {
+                return EMPTY;
+            }
+        }
     }
 
     return {
