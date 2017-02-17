@@ -35,6 +35,8 @@ npm run webpack-test
 open _specRunner.html
 ```
 
+<img src="https://cloud.githubusercontent.com/assets/6018387/23070475/10afb3d6-f523-11e6-8933-4490dd4cae4c.png" alt="Jasmine tests passing" width="384"/>
+
 Every time a change is made, run `npm run webpack-test` again and then refresh _specRunner.html in your browser window.
 
 #### Debugging #####
