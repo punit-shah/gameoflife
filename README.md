@@ -2,7 +2,7 @@
 
 ## Task ##
 
-My task was to implement the rules of Conway's Game of Life as explained in the document statement. I implemented the `evolve()` method in `scripts/gol.js` and added tests to `spec/golSpec.js` to verify the correctness of my code.
+My task was to implement the rules of Conway's Game of Life as explained in [rules.md](https://github.com/punit-shah/gameoflife/blob/master/rules.md). I implemented the `evolve()` method in `scripts/gol.js` and added tests to `spec/golSpec.js` to verify the correctness of my code.
 
 ## Running Tests ##
 
@@ -18,7 +18,7 @@ npm test
 
 #### Debugging ####
 
-To run tests with a debugger, run the following then go to http://localhost:8282/debug?port=5858 in Chrome:
+To run tests with a debugger, run the following then go to [http://localhost:8282/debug?port=5858](http://localhost:8282/debug?port=5858) in Chrome:
 
 ```
 npm install -g jasmine-node-debug
