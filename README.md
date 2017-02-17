@@ -2,9 +2,25 @@
 
 ## Task ##
 
-My task was to implement the rules of Conway's Game of Life as explained in [rules.md](https://github.com/punit-shah/gameoflife/blob/master/rules.md). I implemented the `evolve()` method in `scripts/gol.js` and added tests to `spec/golSpec.js` to verify the correctness of my code.
+My task was to implement the rules of Conway's Game of Life as explained in [rules.md](https://github.com/punit-shah/gameoflife/blob/master/rules.md). I
+was given the choice of doing this in Java, JavaScript or Python, and chose JavaScript. I implemented the `evolve()` method in `scripts/gol.js` and added
+tests to `spec/golSpec.js` to verify the correctness of my code.
+
+The game grids are represented by two-dimensional arrays. Live cells are represented by `1`s, and empty cells are represented by `0`s. An example grid could look like this:
+
+```js
+[
+  [0, 1, 0],
+  [0, 1, 1],
+  [0, 0, 0]
+]
+```
+
+The inner arrays in a grid passed to `evolve()` must be the same length.
 
 ## Running Tests ##
+
+The tests make sure that all the scenarios described in [rules.md](https://github.com/punit-shah/gameoflife/blob/master/rules.md) are satisfied.
 
 ### Prerequisites ###
 
